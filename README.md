@@ -2,7 +2,8 @@
 
 Um editor de fragment shaders (GLSL) simples e poderoso, construído com HTML, CSS e JavaScript puro, que roda diretamente no seu navegador. Permite escrever e testar shaders em tempo real, com syntax highlighting, compilação automática e uma janela de preview instantânea.
 
-![Placeholder para Screenshot](https://via.placeholder.com/800x400.png?text=Adicione+um+screenshot+do+seu+editor+aqui!)
+<img width="1263" height="917" alt="image" src="https://github.com/user-attachments/assets/74eccffc-b5d0-4608-aab0-e28233a0f00e" />
+
 *(Substitua a imagem acima por um screenshot do seu projeto em ação)*
 
 ---
