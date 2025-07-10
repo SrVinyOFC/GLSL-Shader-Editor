@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLSL Shader Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HLSL Shader Editor</h1>
+        
+        <div class="editor-container">
+            <div class="editor-panel">
+                <h2>Fragment Shader</h2>
+                <div class="code-editor">
+                    <div id="highlightedCode" class="syntax-highlight"></div>
+                    <textarea id="shaderCode" placeholder="Digite seu código HLSL aqui..." spellcheck="false">precision mediump float;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+
+            void main() {
+                vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+                
+                // Animação de cores baseada no tempo
+                float r = sin(u_time * 2.0 + uv.x * 10.0) * 0.5 + 0.5;
+                float g = sin(u_time * 3.0 + uv.y * 10.0) * 0.5 + 0.5;
+                float b = sin(u_time * 4.0 + (uv.x + uv.y) * 5.0) * 0.5 + 0.5;
+                
+                gl_FragColor = vec4(r, g, b, 1.0);
+            }</textarea>
+                </div>
+                <div class="controls">
+                    <button id="compileBtn">Compile Shader</button>
+                    <button id="resetBtn">Reset</button>
+                    <button id="formatBtn">Format Code</button>
+                </div>
+                <div id="errorLog"></div>
+            </div>
+            
+            <div class="preview-panel">
+                <h2>Preview</h2>
+                <canvas id="canvas" width="400" height="400"></canvas>
+                <div class="shader-info">
+                    <p>Uniforms available:</p>
+                    <ul>
+                        <li><code>u_time</code> - Time in seconds</li>
+                        <li><code>u_resolution</code> - Canvas resolution</li>
+                        <li><code>u_mouse</code> - Mouse position</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="examples">
+            <h3>Shader Examples</h3>
+            <div class="example-buttons">
+                <button class="example-btn" data-shader="gradient">Gradient</button>
+                <button class="example-btn" data-shader="circle">Circle</button>
+                <button class="example-btn" data-shader="wave">Waves</button>
+                <button class="example-btn" data-shader="plasma">Plasma</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
